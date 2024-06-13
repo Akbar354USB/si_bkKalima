@@ -62,3 +62,5 @@ Route::delete('/riwayat/delete{id}', [HistoryController::class, 'destroy'])->nam
 
 
 Route::get('/tester',[CheckSanksiController::class, 'testing'])->name('tester');
+Route::get('/testingview',[CheckSanksiController::class, 'tesview'])->name('viewtes');
+Route::post('testing/store', [CheckSanksiController::class, 'testing'])->name('testing-store');
