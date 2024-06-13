@@ -26,9 +26,9 @@ class ClasStudentController extends Controller
         return redirect()->route('kelas-index');
     }
         public function edit($id){
-       $kelas = ClasStudent::where("id", $id)->first();
+        $kelas = ClasStudent::where("id", $id)->first();
 
-       return view('Admin.Kelas.edit', compact('kelas'));
+        return view('Admin.Kelas.edit', compact('kelas'));
     }
 
     public function update(Request $request, $id){

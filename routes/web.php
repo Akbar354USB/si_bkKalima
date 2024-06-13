@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckSanksiController;
 use App\Http\Controllers\ClasStudentController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ReportController;
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Admin.Tatib.index');
+    return view('tester');
 });
 
 // route kelas
@@ -58,3 +59,6 @@ Route::post('riwayat/store', [HistoryController::class, 'store'])->name('riwayat
 Route::get('/riwayat/edit{id}', [HistoryController::class, 'edit'])->name('riwayat-edit');
 Route::put('/riwayat/update{id}', [HistoryController::class, 'update'])->name('riwayat-update');
 Route::delete('/riwayat/delete{id}', [HistoryController::class, 'destroy'])->name('riwayat-delete');
+
+
+Route::get('/tester',[CheckSanksiController::class, 'testing'])->name('tester');
