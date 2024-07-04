@@ -4,6 +4,7 @@ use App\Http\Controllers\CheckSanksiController;
 use App\Http\Controllers\ClasStudentController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\SanksiController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TatibController;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,11 @@ Route::delete('/siswa/delete{id}', [StudentController::class, 'destroy'])->name(
 Route::get('tatib/index', [TatibController::class, 'index'])->name('tatib-index');
 Route::post('tatib/store', [TatibController::class, 'store'])->name('tatib-store');
 Route::delete('/tatib/delete{id}', [TatibController::class, 'destroy'])->name('tatib-delete');
+
+// route sanksi
+Route::get('sanksi/index', [SanksiController::class, 'index'])->name('sanksi-index');
+Route::post('sanksi/store', [SanksiController::class, 'store'])->name('sanksi-store');
+Route::delete('/sanksi/delete{id}', [SanksiController::class, 'destroy'])->name('sanksi-delete');
 
 // route Laporan
 Route::get('/laporan/index', [ReportController::class, 'index'])->name('laporan-index');

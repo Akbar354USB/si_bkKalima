@@ -80,6 +80,7 @@
           <th>Nis</th>
           <th>Nama</th>
           <th>Kelas</th>
+          <th>Jenis Kelamin</th>
           <th>Alamat</th>
           <th>Aksi</th>
         </tr>
@@ -91,6 +92,7 @@
           <td>{{ $item->nis }}</td>
           <td>{{ $item->nama }}</td>
           <td>{{ $item->kelas->nama_kelas }}</td>
+          <td>{{ $item->jenis_kelamin }}</td>
           <td>{{ $item->alamat }}</td>
           <td>
             <a class="btn btn-primary" href="{{ route('siswa-edit', $item->id) }}" ><i class="fa fa-lg fa-edit"></i></a>

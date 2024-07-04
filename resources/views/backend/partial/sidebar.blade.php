@@ -13,7 +13,7 @@
         <li><a class="treeview-item" href="{{ route('siswa-index') }}"><i class="icon fa fa-circle-o"></i>Data Siswa</a></li>
         <li><a class="treeview-item" href="{{ route('kelas-index') }}"><i class="icon fa fa-circle-o"></i>Data Kelas</a><li>
         <li><a class="treeview-item" href="{{ route('tatib-index') }}"><i class="icon fa fa-circle-o"></i>Data Tatib</a></li>
-        <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i> Widgets</a></li>
+        <li><a class="treeview-item" href="{{ route('sanksi-index') }}"><i class="icon fa fa-circle-o"></i>Data Sanksi</a></li>
       </ul>
     </li>
     <li><a class="app-menu__item" href="{{ route('kelas-index') }}"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Manajemen User</span></a></li>

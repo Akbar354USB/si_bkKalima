@@ -11,6 +11,8 @@ class Report extends Model
     protected $fillable = [
         'nama_siswa',
         'pelanggaran',
+        'keterangan',
+        'pelapor',
         'kelas_id'
     ];
 

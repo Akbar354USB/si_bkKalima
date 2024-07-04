@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama_siswa');
             $table->string('pelanggaran');
+            $table->string('keterangan');
+            $table->string('pelapor');
             $table->foreignId('kelas_id')->constrained('clas_students')->onUpdate('cascade')->onDelete('restrict');
             $table->timestamps();
         });
