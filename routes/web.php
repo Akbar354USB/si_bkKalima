@@ -51,8 +51,8 @@ Route::delete('/sanksi/delete{id}', [SanksiController::class, 'destroy'])->name(
 // route Laporan
 Route::get('/laporan/index', [ReportController::class, 'index'])->name('laporan-index');
 Route::post('laporan/store', [ReportController::class, 'store'])->name('laporan-store');
-Route::get('/laporan/edit{id}', [ReportController::class, 'edit'])->name('laporan-edit');
-Route::put('/laporan/update{id}', [ReportController::class, 'update'])->name('laporan-update');
+// Route::get('/laporan/edit{id}', [ReportController::class, 'edit'])->name('laporan-edit');
+// Route::put('/laporan/update{id}', [ReportController::class, 'update'])->name('laporan-update');
 Route::delete('/laporan/delete{id}', [ReportController::class, 'destroy'])->name('laporan-delete');
 
 // route riwayat
