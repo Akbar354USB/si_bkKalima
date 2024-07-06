@@ -8,11 +8,25 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
+    public function create(){
+        $kelas = ClasStudent::all();
+        
+        return view('Laporan.create', compact('kelas'));
+    }
+
     public function index(){
         $laporan = Report::all();
         $kelas = ClasStudent::all();
         
         return view('Laporan.index', compact('laporan','kelas'));
+        // return view('Laporan.index');
+    }
+
+    public function index_user($id){
+        $laporan = Report::where("id", $id)->first();
+        $kelas = ClasStudent::all();
+        
+        return view('Laporan.index_user', compact('laporan','kelas'));
         // return view('Laporan.index');
     }
 
@@ -39,25 +53,12 @@ class ReportController extends Controller
         $laporan->save();
 
 
-        return redirect()->route('laporan-index');
+        return redirect()->route('laporan-index-user',$laporan->id);
     }
 
-    //     public function edit($id){
-    //    $kelas = ClasStudent::where("id", $id)->first();
-
-    //    return view('Admin.Kelas.edit', compact('kelas'));
-    // }
-
-    // public function update(Request $request, $id){
-    //     $kelas = ClasStudent::where("id", $id)->first();
-    //     $kelas->update($request->all());
-
-    //     return redirect()->route('kelas-index');
-    // }
-
     public function destroy($id){
-        $laporan = Report::where("id", $id)->first();
-        $laporan->delete();
+        $laporan1 = Report::where("id", $id)->first();
+        $laporan1->delete();
 
         return redirect()->route('laporan-index');
     }

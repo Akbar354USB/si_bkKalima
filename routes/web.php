@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('tester');
+    return view('Laporan.index_user');
 });
 
 // route kelas
@@ -49,11 +49,14 @@ Route::post('sanksi/store', [SanksiController::class, 'store'])->name('sanksi-st
 Route::delete('/sanksi/delete{id}', [SanksiController::class, 'destroy'])->name('sanksi-delete');
 
 // route Laporan
+Route::get('/laporan/create', [ReportController::class, 'create'])->name('laporan-create');
 Route::get('/laporan/index', [ReportController::class, 'index'])->name('laporan-index');
+Route::get('/laporan/index{id}', [ReportController::class, 'index_user'])->name('laporan-index-user');
 Route::post('laporan/store', [ReportController::class, 'store'])->name('laporan-store');
 // Route::get('/laporan/edit{id}', [ReportController::class, 'edit'])->name('laporan-edit');
 // Route::put('/laporan/update{id}', [ReportController::class, 'update'])->name('laporan-update');
 Route::delete('/laporan/delete{id}', [ReportController::class, 'destroy'])->name('laporan-delete');
+// Route::delete('/laporan/deleteuser{id}', [ReportController::class, 'destroy_user'])->name('delete-laporan-user');
 
 // route riwayat
 Route::get('/riwayat/index', [HistoryController::class, 'index'])->name('riwayat-index');
