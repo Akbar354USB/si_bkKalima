@@ -18,6 +18,6 @@
     </li>
     <li><a class="app-menu__item" href="{{ route('kelas-index') }}"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Manajemen User</span></a></li>
     <li><a class="app-menu__item" href="{{ route('laporan-index') }}"><i class="app-menu__icon fa fa-address-card"></i><span class="app-menu__label">Lapor Pelanggaran</span></a></li>
-    <li><a class="app-menu__item" href="{{ route('riwayat-index') }}"><i class="app-menu__icon fa fa-history"></i><span class="app-menu__label">Riwayat Pelanggaran</span></a></li>
+    <li><a class="app-menu__item" href="{{ route('riwayat-count') }}"><i class="app-menu__icon fa fa-history"></i><span class="app-menu__label">Riwayat Pelanggaran</span></a></li>
   </ul>
 </aside>

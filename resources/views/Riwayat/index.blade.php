@@ -54,11 +54,9 @@
       <thead>
         <tr align="center">
           <th>No</th>
-          <th>Kode Riwayat</th>
           <th>Nama siswa</th>
           <th>Kelas</th>
-          <th>Kode Pelanggaran</th>
-          <th>Pelanggaran</th>
+          <th>Jumlah Riwayat Pelanggaran</th>
           <th>Aksi</th>
           
         </tr>
@@ -67,14 +65,12 @@
         @foreach ($riwayat as $key => $item)
         <tr>
           <td align="center">{{ $key+1 }}</td>
-          <td align="center">{{ $item->kode_riwayat }}</td>
-          <td align="center">{{ $item->siswa->nama }}</td>
-          <td align="center">{{ $item->siswa->kelas_id }}</td>
-          <td align="center">{{ $item->tatib->kode_tatib }}</td>
-          <td align="center">{{ $item->tatib->nama_tatib }}</td>
+          <td align="center">{{ $item->siswa }}</td>
+          <td align="center"></td>
+          <td align="center">{{ $item->jumlah_pelanggaran }}</td>
           <td align="center">
             <a class="btn btn-primary" href="" ><i class="fa fa-lg fa-edit"></i></a>
-            <form action="{{ route('riwayat-delete', $item->id)  }}" method="post" style="display: inline" class="form-check-inline">
+            <form action="" method="post" style="display: inline" class="form-check-inline">
                 @csrf
                 @method('delete')
                 <button class="btn btn-danger" type="submit"><i class="fa fa-lg fa-trash"></i></button>

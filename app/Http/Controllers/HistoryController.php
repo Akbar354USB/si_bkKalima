@@ -7,16 +7,28 @@ use App\Models\History;
 use App\Models\Student;
 use App\Models\Tatib;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HistoryController extends Controller
 {
-    public function index(){
-        $tatib = Tatib::all();
-        $siswa = Student::all();
-        $kelas = ClasStudent::all();
-        $riwayat = History::all();
-        return view('Riwayat.index', compact('siswa', 'tatib','riwayat','kelas'));
+    // public function index(){
+    //     $tatib = Tatib::all();
+    //     $siswa = Student::all();
+    //     $kelas = ClasStudent::all();
+    //     $riwayat = History::all();
+    //     return view('Riwayat.index', compact('siswa', 'tatib','riwayat','kelas'));
+    // }
+
+    public function selectcounthistory(){
+        $riwayat = DB::table('histories')
+                    ->join('students', 'histories.siswa_id', '=', 'students.id')
+                    ->select('students.nama as siswa', DB::raw('COUNT(histories.id) as jumlah_pelanggaran'))
+                    ->groupBy('students.nama')
+                    ->get();
+        
+        return view('Riwayat.index', compact('riwayat'));
     }
+    
 
     public function selectsiswa(){
         $data = Student::where('nama','LIKE','%'.request('q').'%')->paginate(10);
