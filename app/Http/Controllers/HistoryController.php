@@ -23,11 +23,23 @@ class HistoryController extends Controller
         $riwayat = DB::table('histories')
                     ->join('students', 'histories.siswa_id', '=', 'students.id')
                     ->join('clas_students', 'students.kelas_id', '=', 'clas_students.id')
-                    ->select('students.nama as siswa', 'clas_students.kode_kelas as kelas', DB::raw('COUNT(histories.id) as jumlah_pelanggaran'))
-                    ->groupBy('students.nama', 'clas_students.kode_kelas')
+                    ->select('students.id as siswa_id','students.nama as siswa', 'clas_students.kode_kelas as kelas', DB::raw('COUNT(histories.id) as jumlah_pelanggaran'))
+                    ->groupBy('students.id','students.nama', 'clas_students.kode_kelas')
                     ->get();
         
         return view('Riwayat.index', compact('riwayat'));
+    }
+
+    public function detailhistory($siswa_id){
+        $riwayats = DB::table('histories')
+                    ->join('students', 'histories.siswa_id', '=', 'students.id')
+                    ->join('tatibs', 'histories.tatib_id', '=', 'tatibs.id')
+                    ->join('clas_students', 'students.kelas_id', '=', 'clas_students.id')
+                    ->select('histories.*' , 'students.nama as siswa', 'clas_students.kode_kelas as kelas', 'tatibs.kode_tatib as kode_tatib', 'tatibs.nama_tatib as nama_tatib', 'histories.kode_riwayat')
+                    ->where('histories.siswa_id',$siswa_id)
+                    ->get();
+        
+        return view('Riwayat.detail_history', compact('riwayats'));
     }
     
 

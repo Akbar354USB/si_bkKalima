@@ -57,7 +57,7 @@
           <th>Nama siswa</th>
           <th>Kelas</th>
           <th>Jumlah Riwayat Pelanggaran</th>
-          <th>Aksi</th>
+          <th>Detail</th>
           
         </tr>
       </thead>
@@ -69,12 +69,13 @@
           <td align="center">{{ $item->kelas }}</td>
           <td align="center">{{ $item->jumlah_pelanggaran }}</td>
           <td align="center">
-            <a class="btn btn-primary" href="" ><i class="fa fa-lg fa-edit"></i></a>
+            <a class="btn btn-primary" href="{{ route('riwayat-detail', $item->siswa_id) }}" ><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+            {{-- <a class="btn btn-primary" href="" ><i class="fa fa-lg fa-edit"></i></a>
             <form action="" method="post" style="display: inline" class="form-check-inline">
                 @csrf
                 @method('delete')
                 <button class="btn btn-danger" type="submit"><i class="fa fa-lg fa-trash"></i></button>
-            </form>
+            </form> --}}
           </td>
         </tr>
         @endforeach

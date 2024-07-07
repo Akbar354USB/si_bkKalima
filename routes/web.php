@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('Riwayat.tester');
+    return view('Riwayat.detail_history');
 });
 
 // route kelas
@@ -60,6 +60,7 @@ Route::delete('/laporan/delete{id}', [ReportController::class, 'destroy'])->name
 
 // route riwayat
 Route::get('/riwayat/index', [HistoryController::class, 'selectcounthistory'])->name('riwayat-count');
+Route::get('/riwayat/detail-history{jos_id}', [HistoryController::class, 'detailhistory'])->name('riwayat-detail');
 
 Route::get('selectSiswa',[HistoryController::class, 'selectsiswa'])->name('selectsiswa');
 Route::get('selectTatib',[HistoryController::class, 'selecttatib'])->name('selecttatib');
