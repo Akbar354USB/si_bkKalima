@@ -22,8 +22,9 @@ class HistoryController extends Controller
     public function selectcounthistory(){
         $riwayat = DB::table('histories')
                     ->join('students', 'histories.siswa_id', '=', 'students.id')
-                    ->select('students.nama as siswa', DB::raw('COUNT(histories.id) as jumlah_pelanggaran'))
-                    ->groupBy('students.nama')
+                    ->join('clas_students', 'students.kelas_id', '=', 'clas_students.id')
+                    ->select('students.nama as siswa', 'clas_students.kode_kelas as kelas', DB::raw('COUNT(histories.id) as jumlah_pelanggaran'))
+                    ->groupBy('students.nama', 'clas_students.kode_kelas')
                     ->get();
         
         return view('Riwayat.index', compact('riwayat'));

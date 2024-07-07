@@ -66,7 +66,7 @@
         <tr>
           <td align="center">{{ $key+1 }}</td>
           <td align="center">{{ $item->siswa }}</td>
-          <td align="center"></td>
+          <td align="center">{{ $item->kelas }}</td>
           <td align="center">{{ $item->jumlah_pelanggaran }}</td>
           <td align="center">
             <a class="btn btn-primary" href="" ><i class="fa fa-lg fa-edit"></i></a>
