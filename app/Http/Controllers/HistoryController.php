@@ -66,7 +66,7 @@ class HistoryController extends Controller
 
         History::create($request->all());
 
-        return redirect()->route('riwayat-index');
+        return redirect()->route('riwayat-count');
     }
     //     public function edit($id){
     //    $kelas = ClasStudent::where("id", $id)->first();
@@ -82,9 +82,9 @@ class HistoryController extends Controller
     // }
 
     public function destroy($id){
-        $riwayat = History::where("id", $id)->first();
+        $riwayat = History::findOrFail($id);
         $riwayat->delete();
 
-        return redirect()->route('riwayat-index');
+        return redirect()->back();
     }
 }

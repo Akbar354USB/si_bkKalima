@@ -28,7 +28,7 @@
           <td align="center">{{ $item->nama_tatib }}</td>
           <td align="center">
             <a class="btn btn-primary" href="" ><i class="fa fa-lg fa-edit"></i></a>
-            <form action="" method="post" style="display: inline" class="form-check-inline">
+            <form action="{{ route('riwayat-delete', $item->id) }}" method="post" style="display: inline" class="form-check-inline">
                 @csrf
                 @method('delete')
                 <button class="btn btn-danger" type="submit"><i class="fa fa-lg fa-trash"></i></button>
