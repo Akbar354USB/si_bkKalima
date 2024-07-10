@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     public function index(){
-        $siswa = Student::with("kelas")->paginate(5);
+        $siswa = Student::with("kelas")->paginate(10);
 
         // $siswa = Siswa::with("kelas")->paginate(5)
         $kelas = ClasStudent::all();

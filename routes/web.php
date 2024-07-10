@@ -60,9 +60,12 @@ Route::delete('/laporan/delete{id}', [ReportController::class, 'destroy'])->name
 
 // route riwayat
 Route::get('/riwayat/index', [HistoryController::class, 'selectcounthistory'])->name('riwayat-count');
-Route::get('/riwayat/detail-history{siswa_id}', [HistoryController::class, 'detailhistory'])->name('riwayat-detail');
+Route::get('/riwayat/detail-history{siswa_id}/{id}', [HistoryController::class, 'detailhistory'])->name('riwayat-detail');
 Route::get('selectSiswa',[HistoryController::class, 'selectsiswa'])->name('selectsiswa');
 Route::get('selectTatib',[HistoryController::class, 'selecttatib'])->name('selecttatib');
+
+// Route::post('riwayat/sanksi-store{siswa_id}', [HistoryController::class, 'postSanksi'])->name('postSanksi');
+Route::post('riwayat/sanksi-store/{siswa_id}', [HistoryController::class, 'postSanksi'])->name('postSanksi');
 
 Route::post('riwayat/store', [HistoryController::class, 'store'])->name('riwayat-store');
 Route::get('/riwayat/edit{id}', [HistoryController::class, 'edit'])->name('riwayat-edit');

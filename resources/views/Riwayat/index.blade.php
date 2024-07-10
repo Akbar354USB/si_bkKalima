@@ -69,7 +69,7 @@
           <td align="center">{{ $item->kelas }}</td>
           <td align="center">{{ $item->jumlah_pelanggaran }}</td>
           <td align="center">
-            <a class="btn btn-primary" href="{{ route('riwayat-detail', $item->siswa_id) }}" ><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
+            <a class="btn btn-primary" href="{{ route('riwayat-detail', ['siswa_id' => $item->siswa_id, 'id' => $item->siswa_id]) }}" ><i class="fa fa-file-text-o" aria-hidden="true"></i></a>
             {{-- <a class="btn btn-primary" href="" ><i class="fa fa-lg fa-edit"></i></a>
             <form action="" method="post" style="display: inline" class="form-check-inline">
                 @csrf

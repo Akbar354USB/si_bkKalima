@@ -27,7 +27,6 @@
           <td align="center">{{ $item->kode_tatib }}</td>
           <td align="center">{{ $item->nama_tatib }}</td>
           <td align="center">
-            <a class="btn btn-primary" href="" ><i class="fa fa-lg fa-edit"></i></a>
             <form action="{{ route('riwayat-delete', $item->id) }}" method="post" style="display: inline" class="form-check-inline">
                 @csrf
                 @method('delete')
@@ -35,8 +34,17 @@
             </form>
           </td>
         </tr>
-        @endforeach
       </tbody>
+      @endforeach
     </table>
+    {{-- <a class="btn btn-primary ml-3" href="{{ route('postSanksi') }}">+ Buat Laporan Sanksi</a> --}}
+    {{-- <form action="{{ route('postSanksi', $riwayats->id) }}" method="post" style="display: inline" class="form-check-inline">
+      @csrf
+      <button class="btn btn-primary" type="submit">+ Buat Laporan Sanksi</i></button>
+  </form> --}}
+  <form action="{{ route('postSanksi',['siswa_id' => $siswa->id]) }}" method="post" style="display: inline" class="form-check-inline">
+    @csrf
+    <button class="btn btn-primary" type="submit">+ Buat Laporan Sanksi</i></button>
+</form>
   </div>
 @endsection
