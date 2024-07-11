@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class SanksiController extends Controller
 {
     public function index(){
-        $sanksi = sanksi::all();
+        $sanksi = sanksi::paginate(15);
         
         return view('Admin.Sanksi.index', compact('sanksi'));
     }

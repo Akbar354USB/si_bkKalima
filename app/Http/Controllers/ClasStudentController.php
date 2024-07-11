@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ClasStudentController extends Controller
 {
     public function index(){
-        $kelas = ClasStudent::all();
+        $kelas = ClasStudent::paginate(10);
         
         return view('Admin.Kelas.index', compact('kelas'));
     }

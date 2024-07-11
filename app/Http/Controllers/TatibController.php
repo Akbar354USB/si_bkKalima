@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class TatibController extends Controller
 {
     public function index(){
-        $tatib = Tatib::all();
+        $tatib = Tatib::paginate(10);
         
         return view('Admin.Tatib.index', compact('tatib'));
     }

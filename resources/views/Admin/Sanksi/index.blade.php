@@ -32,7 +32,7 @@
 </div>
 
 {{-- card kedua --}}
-<div class="tile">
+<div class="tile mb-2">
     <h3 class="tile-title">Data Sanksi</h3>
     <table class="table">
       <thead>
@@ -61,4 +61,9 @@
       </tbody>
     </table>
   </div>
+
+       {{-- tag menambahkan pagination --}}
+       <div class="mb-1 float-right">
+        {{ $sanksi->links() }}
+      </div>
 @endsection
