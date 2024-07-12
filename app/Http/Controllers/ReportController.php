@@ -53,13 +53,13 @@ class ReportController extends Controller
         $laporan->save();
 
 
-        return redirect()->route('laporan-index-user',$laporan->id);
+        return redirect()->route('laporan-index-user',$laporan->id)->with('success', 'Data berhasil ditambahkan!');
     }
 
     public function destroy($id){
         $laporan1 = Report::where("id", $id)->first();
         $laporan1->delete();
 
-        return redirect()->route('laporan-index');
+        return redirect()->route('laporan-index')->with('success', 'Data berhasil dihapus!');
     }
 }

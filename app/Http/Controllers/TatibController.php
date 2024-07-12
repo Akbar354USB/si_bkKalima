@@ -25,13 +25,13 @@ class TatibController extends Controller
         ]);
 
         Tatib::create($request->all());
-        return redirect()->route('tatib-index');
+        return redirect()->route('tatib-index')->with('success', 'Data berhasil ditambahkan!');
     }
 
     public function destroy($id){
         $tatib = Tatib::where("id", $id)->first();
         $tatib->delete();
 
-        return redirect()->route('tatib-index');
+        return redirect()->route('tatib-index')->with('success', 'Data berhasil dihapus!');
     }
 }

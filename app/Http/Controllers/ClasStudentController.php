@@ -23,7 +23,7 @@ class ClasStudentController extends Controller
         ]);
 
         ClasStudent::create($request->all());
-        return redirect()->route('kelas-index');
+        return redirect()->route('kelas-index')->with('success', 'Data berhasil ditambahkan!');
     }
         public function edit($id){
         $kelas = ClasStudent::where("id", $id)->first();
@@ -35,13 +35,13 @@ class ClasStudentController extends Controller
         $kelas = ClasStudent::where("id", $id)->first();
         $kelas->update($request->all());
 
-        return redirect()->route('kelas-index');
+        return redirect()->route('kelas-index')->with('success', 'Data berhasil diupdate!');
     }
 
     public function destroy($id){
         $kelas = ClasStudent::where("id", $id)->first();
         $kelas->delete();
 
-        return redirect()->route('kelas-index');
+        return redirect()->route('kelas-index')->with('success', 'Data berhasil dihapus!');
     }
 }

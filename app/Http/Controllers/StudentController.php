@@ -33,7 +33,7 @@ class StudentController extends Controller
         ]);
 
         Student::create($request->all());
-        return redirect()->route('siswa-index');
+        return redirect()->route('siswa-index')->with('success', 'Data berhasil ditambahkan!');
     }
 
         public function edit($id){
@@ -47,13 +47,13 @@ class StudentController extends Controller
         $siswa = Student::where("id", $id)->first();
         $siswa->update($request->all());
 
-        return redirect()->route('siswa-index');
+        return redirect()->route('siswa-index')->with('success', 'Data berhasil diupdate!');
     }
 
     public function destroy($id){
         $siswa = Student::where("id", $id)->first();
         $siswa->delete();
 
-        return redirect()->route('siswa-index');
+        return redirect()->route('siswa-index')->with('success', 'Data berhasil dihapus!');
     }
 }

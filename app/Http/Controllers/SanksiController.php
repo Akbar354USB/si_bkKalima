@@ -23,13 +23,13 @@ class SanksiController extends Controller
         ]);
 
         sanksi::create($request->all());
-        return redirect()->route('sanksi-index');
+        return redirect()->route('sanksi-index')->with('success', 'Data berhasil ditambahkan!');
     }
 
     public function destroy($id){
         $sanksi = sanksi::where("id", $id)->first();
         $sanksi->delete();
 
-        return redirect()->route('sanksi-index');
+        return redirect()->route('sanksi-index')->with('success', 'Data berhasil dihapus!');
     }
 }

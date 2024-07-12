@@ -120,13 +120,13 @@ class HistoryController extends Controller
 
         History::create($request->all());
 
-        return redirect()->route('riwayat-count');
+        return redirect()->route('riwayat-count')->with('success', 'Data berhasil ditambahkan! Silahkan Cek Pada Detail Untuk Melihat Data Riwayat Pelanggaran Siswa');
     }
 
     public function destroy($id){
         $riwayat = History::findOrFail($id);
         $riwayat->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Data berhasil dihapus!');
     }
 }
